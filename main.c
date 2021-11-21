@@ -31,6 +31,10 @@ int check (char board[3][3]) {
         return WON;
     }
 
+    if (board[0][0] == 'o' && board[1][1] == 'o' && board[2][2] == 'o') {
+        return LOST;
+    }
+
     if (board[0][2] == 'o' && board[1][1] == 'o' && board[2][0] == 'o') {
         return LOST;
     }
