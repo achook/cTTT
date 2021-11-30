@@ -91,9 +91,9 @@ int best (char board[3][3], int mode, int *x, int *y) {
 void print(char board[3][3]) {
     printf("-------------\n");
 
-    for (int x = 0; x < 3; x++) {
+    for (int y = 0; y < 3; y++) {
         printf("|");
-        for (int y = 0; y < 3; y++) {
+        for (int x = 0; x < 3; x++) {
             printf(" %c |", board[x][y]);
         }
         printf("\n");
@@ -133,10 +133,23 @@ int main() {
             return 0;
         }
 
-        printf("Podaj ruch ([x] [y]):");
-        scanf("%d %d", &x, &y);
-        board[x][y] = 'o';
-        print(board);
+        while (1) {
+
+            printf("Podaj ruch ([x] [y]):");
+            scanf("%d %d", &x, &y);
+            if (board[x][y] == ' ') {
+                board[x][y] = 'o';
+                print(board);
+                break;
+            } else {
+                printf("Błędny ruch!!\n");
+            }
+
+
+
+        }
+
+
 
         result = check(board);
 
